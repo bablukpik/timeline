@@ -19,14 +19,14 @@ body{
   background: #3ea0e2;
 }
 
-.wrapper{
+.timeline{
   max-width: 1080px;
   margin: 50px auto;
   padding: 0 20px;
   position: relative;
 }
 
-.wrapper .center-line{
+.center-line{
   position: absolute;
   height: 100%;
   width: 4px;
@@ -36,19 +36,19 @@ body{
   transform: translateX(-50%);
 }
 
-.wrapper .row{
+.timeline-item{
   display: flex;
 }
 
-.wrapper .row-1{
+.timeline-item-left{
   justify-content: flex-start;
 }
 
-.wrapper .row-2{
+.timeline-item-right{
   justify-content: flex-end;
 }
 
-.wrapper .row section{
+.timeline-item section{
   background: #fff;
   border-radius: 5px;
   width: calc(50% - 40px);
@@ -56,7 +56,7 @@ body{
   position: relative;
 }
 
-.wrapper .row section::before{
+.timeline-item section::before{
   position: absolute;
   content: "";
   height: 15px;
@@ -67,15 +67,15 @@ body{
   transform: rotate(45deg);
 }
 
-.row-1 section::before{
+.timeline-item-left section::before{
   right: -7px;
 }
 
-.row-2 section::before{
+.timeline-item-right section::before{
   left: -7px;
 }
 
-.row section .icon,
+.timeline-item section .icon,
 .center-line .scroll-icon{
   position: absolute;
   background: #f2f2f2;
@@ -96,34 +96,33 @@ body{
   transform: translateX(-50%);
 }
 
-.row-1 section .icon{
+.timeline-item-left section .icon{
   top: 15px;
   right: -55px;
 }
 
-.row-2 section .icon{
+.timeline-item-right section .icon{
   top: 15px;
   left: -55px;
 }
 
-.row section .details,
-
-.row section .bottom{
+.timeline-item section .details,
+.timeline-item section .bottom{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.row section .details .title{
+.timeline-item section .details .title{
   font-size: 22px;
   font-weight: 600;
 }
 
-.row section p{
+.timeline-item section p{
   margin: 10px 0 17px 0;
 }
 
-.row section .bottom a{
+.timeline-item section .bottom a{
   text-decoration: none;
   background: #3ea0e2;
   color: #fff;
@@ -134,35 +133,40 @@ body{
   transition: all 0.3s ease;
 }
 
-.row section .bottom a:hover{
+.timeline-item section .bottom a:hover{
   transform: scale(0.97);
 }
 
 @media(max-width: 790px){
-  .wrapper .center-line{
+  .center-line{
     left: 40px;
   }
-  .wrapper .row{
+  
+  .timeline-item{
     margin: 30px 0 3px 60px;
   }
-  .wrapper .row section{
+  
+  .timeline-item section{
     width: 100%;
   }
-  .row-1 section::before{
+  
+  .timeline-item-left section::before{
     left: -7px;
   }
-  .row-1 section .icon{
+  
+  .timeline-item-left section .icon{
     left: -55px;
   }
 }
 
 @media(max-width: 440px){
-  .wrapper .center-line,
-  .row section::before,
-  .row section .icon{
+  .center-line,
+  .timeline-item section::before,
+  .timeline-item section .icon{
     display: none;
   }
-  .wrapper .row{
+
+  .timeline-item{
     margin: 10px 0;
   }
 }
